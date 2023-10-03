@@ -327,14 +327,7 @@
                 android:textSize="20dp"
                 android:gravity="bottom|end"
                 />
-            <TextView
-                android:layout_height="0dp"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:text="3"
-                android:textSize="20dp"
-                android:gravity="bottom|end"
-                />
+
             <TextView
                 android:layout_height="0dp"
                 android:layout_width="match_parent"
@@ -442,5 +435,15 @@
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom|end"
+        android:text="3"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="253dp"
+        tools:layout_editor_absoluteY="224dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
