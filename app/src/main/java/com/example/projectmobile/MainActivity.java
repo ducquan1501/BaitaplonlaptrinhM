@@ -19,6 +19,7 @@ import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -43,11 +44,14 @@ public class MainActivity extends AppCompatActivity {
         editText3 = findViewById(R.id.parameter3);
         editText4 = findViewById(R.id.parameter4);
         editText5 = findViewById(R.id.parameter5);
-        Button button = (Button) findViewById(R.id.executeB);
+
+        Button executeB = findViewById(R.id.executeB);
+        Button deleteB = findViewById(R.id.deleteButton);
+        Button undoB = findViewById(R.id.undoB);
+
         //2. Tạo đường trục tung, trục hoành
         ArrayList<Entry> zeroLineEntriesX = new ArrayList<>();
-        for(float x0 = -15; x0 <= 15; x0+=0.1)
-        {
+        for (float x0 = -15; x0 <= 15; x0 += 0.1) {
             float y0 = 0;
             zeroLineEntriesX.add(new Entry(x0, y0));
         }
@@ -105,57 +109,76 @@ public class MainActivity extends AppCompatActivity {
         lineChart.invalidate();
 
         //4. Thiết lập chức năng cho nút Button
-        button.setOnClickListener(new View.OnClickListener() {
+        executeB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-        //4.1. Xử lý các editText trống
-            String et1 = editText1.getText().toString();
-                if(et1.isEmpty()) {
+                //4.1. Xử lý các editText trống
+                String et1 = editText1.getText().toString();
+                if (et1.isEmpty()) {
                     editText1.setText("0");
                 }
-            String et2 = editText2.getText().toString();
-                if(et2.isEmpty()){
+                String et2 = editText2.getText().toString();
+                if (et2.isEmpty()) {
                     editText2.setText("0");
                 }
-            String et3 = editText3.getText().toString();
-                if(et3.isEmpty()){
+                String et3 = editText3.getText().toString();
+                if (et3.isEmpty()) {
                     editText3.setText("0");
                 }
-            String et4 = editText4.getText().toString();
-            if(et4.isEmpty()){
-                editText4.setText("0");
-            }
-            String et5 = editText5.getText().toString();
-            if(et5.isEmpty()){
-                editText5.setText("0");
-            }
-            Float p1 = Float.parseFloat(editText1.getText().toString());
-            Float p2 = Float.parseFloat(editText2.getText().toString());
-            Float p3 = Float.parseFloat(editText3.getText().toString());
-            Float p4 = Float.parseFloat(editText4.getText().toString());
-            Float p5 = Float.parseFloat(editText5.getText().toString());
-
-            //4.2. Tạo mảng chứa tập hợp các điểm hình thành nên đồ thị
-            List<Entry> entries = new ArrayList<>();
-            for (float x = -15; x <= 15; x += 0.02)
-            {
-                float y = p1*x*x*x*x + p2*x*x*x + p3*x*x + p4*x + p5;
-                entries.add(new Entry(x, y));
-            }
-            //4.3 Khai báo dataSet
-            LineDataSet dataSet = new LineDataSet(entries, "y = "+p1+"x^4 +" +p2+"x^3 + " +p3+"x^2 + "+p4+"x+ "+p5);
-            dataSet.setColor(Color.RED);
-            dataSet.setDrawValues(false);
-            dataSet.setDrawCircles(false);
-            dataSet.setLineWidth(2f);
-
-            //4.4. Tạo một LineData chứa LineDataSet của đường kẻ
-            lineData.addDataSet(dataSet);
-            lineChart.setData(lineData);
-
-            //4.5. Vẽ đồ thị
-            lineChart.invalidate();
+                String et4 = editText4.getText().toString();
+                if (et4.isEmpty()) {
+                    editText4.setText("0");
                 }
-            });
+                String et5 = editText5.getText().toString();
+                if (et5.isEmpty()) {
+                    editText5.setText("0");
+                }
+                Float p1 = Float.parseFloat(editText1.getText().toString());
+                Float p2 = Float.parseFloat(editText2.getText().toString());
+                Float p3 = Float.parseFloat(editText3.getText().toString());
+                Float p4 = Float.parseFloat(editText4.getText().toString());
+                Float p5 = Float.parseFloat(editText5.getText().toString());
+
+                //4.2. Tạo mảng chứa tập hợp các điểm hình thành nên đồ thị
+                List<Entry> entries = new ArrayList<>();
+                for (float x = -15; x <= 15; x += 0.02) {
+                    float y = p1 * x * x * x * x + p2 * x * x * x + p3 * x * x + p4 * x + p5;
+                    entries.add(new Entry(x, y));
+                }
+                //4.3 Khai báo dataSet
+                LineDataSet dataSet = new LineDataSet(entries, "y = " + p1 + "x^4 +" + p2 + "x^3 + " + p3 + "x^2 + " + p4 + "x+ " + p5);
+                dataSet.setColor(Color.RED);
+                dataSet.setDrawValues(false);
+                dataSet.setDrawCircles(false);
+                dataSet.setLineWidth(2f);
+
+                //4.4. Tạo một LineData chứa LineDataSet của đường kẻ
+                lineData.addDataSet(dataSet);
+                lineChart.setData(lineData);
+
+                //4.5. Vẽ đồ thị
+                lineChart.invalidate();
+            }
+        });
+        deleteB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editText1.setText("");
+                editText2.setText("");
+                editText3.setText("");
+                editText4.setText("");
+                editText5.setText("");
+            }
+        });
+        undoB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int i = lineData.getDataSetCount();
+                if(i>2) {
+                    lineData.removeDataSet(i-1);
+                }
+                lineChart.invalidate();
+            }
+        });
     }
 }
