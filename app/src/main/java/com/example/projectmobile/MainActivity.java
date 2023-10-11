@@ -7,12 +7,22 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -33,6 +43,10 @@ import java.util.List;
 import java.lang.Math;
 public class MainActivity extends AppCompatActivity {
     private EditText editText1, editText2, editText3, editText4, editText5;
+    public Button menuButton;
+    public ActionBarDrawerToggle toggle;
+    public DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +62,16 @@ public class MainActivity extends AppCompatActivity {
         Button executeB = findViewById(R.id.executeB);
         Button deleteB = findViewById(R.id.deleteButton);
         Button undoB = findViewById(R.id.undoB);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.nav_open, R.string.nav_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        Toolbar kebab_Menu = findViewById(R.id.kebabMenu);
+        setSupportActionBar(kebab_Menu);
 
         //2. Tạo đường trục tung, trục hoành
         //2.1. Xây dựng Entry - tập hợp các phần tử để tạo thành đồ thị
@@ -121,23 +145,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //4.1. Xử lý các editText trống
                 String et1 = editText1.getText().toString();
-                if (et1.isEmpty()||et1.equals("-")||et1.equals(".")) {
+                if (et1.isEmpty() || et1.equals("-") || et1.equals(".")) {
                     editText1.setText("0");
                 }
                 String et2 = editText2.getText().toString();
-                if (et2.isEmpty()||et2.equals("-")||et2.equals(".")) {
+                if (et2.isEmpty() || et2.equals("-") || et2.equals(".")) {
                     editText2.setText("0");
                 }
                 String et3 = editText3.getText().toString();
-                if (et3.isEmpty()||et3.equals("-")||et3.equals(".")) {
+                if (et3.isEmpty() || et3.equals("-") || et3.equals(".")) {
                     editText3.setText("0");
                 }
                 String et4 = editText4.getText().toString();
-                if (et4.isEmpty()||et4.equals("-")||et4.equals(".")) {
+                if (et4.isEmpty() || et4.equals("-") || et4.equals(".")) {
                     editText4.setText("0");
                 }
                 String et5 = editText5.getText().toString();
-                if (et5.isEmpty()||et5.equals("-")||et5.equals(".")) {
+                if (et5.isEmpty() || et5.equals("-") || et5.equals(".")) {
                     editText5.setText("0");
                 }
                 Float p1 = Float.parseFloat(editText1.getText().toString());
@@ -155,19 +179,19 @@ public class MainActivity extends AppCompatActivity {
                 //4.3 Khai báo dataSet
                 LineDataSet dataSet = new LineDataSet(entries, "y = " + p1 + "x^4 +" + p2 + "x^3 + " + p3 + "x^2 + " + p4 + "x+ " + p5);
                 int i = lineData.getDataSetCount();
-                if(i%7==0){
+                if (i % 7 == 0) {
                     dataSet.setColor(Color.YELLOW);
-                } else if (i%7==1) {
+                } else if (i % 7 == 1) {
                     dataSet.setColor(Color.parseColor("#FFAE00"));
-                } else if (i%7==2) {
+                } else if (i % 7 == 2) {
                     dataSet.setColor(Color.RED);
-                } else if (i%7==3) {
+                } else if (i % 7 == 3) {
                     dataSet.setColor(Color.GREEN);
-                } else if (i%7==4) {
+                } else if (i % 7 == 4) {
                     dataSet.setColor(Color.parseColor("#02C7FC"));
-                } else if (i%7==5) {
+                } else if (i % 7 == 5) {
                     dataSet.setColor(Color.parseColor("#2E00FF"));
-                } else if (i%7==6) {
+                } else if (i % 7 == 6) {
                     dataSet.setColor(Color.parseColor("#A320D5"));
                 }
                 dataSet.setDrawValues(false);
@@ -198,11 +222,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int i = lineData.getDataSetCount();
-                if(i>2) {
-                    lineData.removeDataSet(i-1);
+                if (i > 2) {
+                    lineData.removeDataSet(i - 1);
                 }
                 lineChart.invalidate();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        int id = item.getItemId();
+
+        if(id==R.id.item1) {
+            return true;
+        } else if (id==R.id.item2) {
+            return true;
+        } else if (id==R.id.item3) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.sub_menu, menu);
+        return true;
     }
 }
