@@ -6,6 +6,41 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@color/truegreen">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fragmentButton"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/baseline_menu_24"/>
+        <TextView
+            android:layout_width="330dp"
+            android:layout_height="match_parent"
+            android:text="Đồ thị"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:textSize="30dp"
+            android:paddingLeft="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/fragmentButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/baseline_more_vert_24"
+            android:paddingTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -15,7 +50,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1.2"
             android:text="y="
             android:textSize="30dp"
             android:gravity="center" />
@@ -23,7 +58,7 @@
             android:id="@+id/parameter1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:textSize="30dp"
             android:inputType="numberSigned|numberDecimal"/>
@@ -37,7 +72,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.24"
+            android:layout_weight="0.26"
             android:text="4"
             android:textSize="15dp"
             android:paddingTop="10dp"/>
@@ -52,7 +87,7 @@
             android:id="@+id/parameter2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
+            android:layout_weight="0.5"
             android:paddingTop="10dp"
             android:inputType="numberDecimal|numberSigned"
             android:textSize="30dp"
@@ -67,7 +102,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.24"
+            android:layout_weight="0.26"
             android:text="3"
             android:textSize="15dp"
             android:paddingTop="10dp"/>
@@ -82,7 +117,7 @@
             android:id="@+id/parameter3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:textSize="30dp"
             android:inputType="numberDecimal|numberSigned"/>
@@ -96,7 +131,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.24"
+            android:layout_weight="0.26"
             android:text="2"
             android:textSize="15dp"
             android:paddingTop="10dp"/>
@@ -111,7 +146,7 @@
             android:id="@+id/parameter4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:textSize="30dp"
             android:inputType="numberDecimal|numberSigned"/>
@@ -133,14 +168,15 @@
             android:id="@+id/parameter5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
+            android:layout_weight="0.5"
             android:gravity="center"
             android:textSize="30dp"
             android:inputType="numberDecimal|numberSigned"/>
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.8">
+            android:layout_weight="1.5"
+            android:layout_gravity="">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/deleteButton"
             android:layout_width="match_parent"
@@ -153,7 +189,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9">
+        android:layout_weight="8.5">
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
             android:layout_width="match_parent"
@@ -164,27 +200,49 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.06">
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/executeB"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_blue_dark"
-                android:drawableLeft="@drawable/baseline_border_color_24"/>
+                android:drawableTop="@drawable/baseline_border_color_24"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
+            android:id="@+id/undoBCardView"
             android:layout_width="60dp"
             android:layout_height="60dp"
             app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/executeBCardView">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.2">
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/undoB"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_red_dark"
-                android:drawableLeft="@drawable/baseline_replay_24"/>
+                android:drawableTop="@drawable/baseline_replay_24"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/truegreen"
+            android:drawableBottom="@drawable/baseline_add_24"/>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>

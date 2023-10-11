@@ -30,7 +30,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.lang.Math;
 public class MainActivity extends AppCompatActivity {
     private EditText editText1, editText2, editText3, editText4, editText5;
     @Override
@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
         Button undoB = findViewById(R.id.undoB);
 
         //2. Tạo đường trục tung, trục hoành
+        //2.1. Xây dựng Entry - tập hợp các phần tử để tạo thành đồ thị
         ArrayList<Entry> zeroLineEntriesX = new ArrayList<>();
-        for (float x0 = -15; x0 <= 15; x0 += 0.1) {
+        for (float x0 = -55; x0 <= 55; x0 += 0.1) {
             float y0 = 0;
             zeroLineEntriesX.add(new Entry(x0, y0));
         }
@@ -62,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
 
         //2. Tạo DataSet cho các đường trục tung, trục hoành
         LineDataSet zeroLineDataSetX = new LineDataSet(zeroLineEntriesX, "Ox");
+        zeroLineDataSetX.setDrawValues(false);
         zeroLineDataSetX.setDrawCircles(false);
         zeroLineDataSetX.setColor(Color.BLACK);
         zeroLineDataSetX.setLineWidth(3f);
 
         LineDataSet zeroLineDataSetY = new LineDataSet(zeroLineEntriesY, "Oy");
+        zeroLineDataSetX.setDrawValues(false);
         zeroLineDataSetY.setDrawCircles(false);
         zeroLineDataSetY.setColor(Color.BLACK);
         zeroLineDataSetY.setLineWidth(3f);
@@ -77,17 +80,17 @@ public class MainActivity extends AppCompatActivity {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(15f);
-        xAxis.setAxisMinimum(-15f);
+        xAxis.setAxisMaximum(55f);
+        xAxis.setAxisMinimum(-55f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
-        xAxis.setValueFormatter(new ValueFormatter() {
-            @Override
-            public String getAxisLabel(float value, AxisBase axis) {
-                return String.valueOf(value);
-            }
-        });
+//        xAxis.setValueFormatter(new ValueFormatter() {
+//            @Override
+//            public String getAxisLabel(float value, AxisBase axis) {
+//                return String.valueOf(value);
+//            }
+//        });
 
         YAxis yAxis = lineChart.getAxisLeft();
         YAxis yAxisR = lineChart.getAxisRight();
@@ -101,11 +104,15 @@ public class MainActivity extends AppCompatActivity {
         lineChart.setData(lineData);
         Legend lg = lineChart.getLegend();
         lg.setEnabled(false);
+
         Description dp = new Description();
-        dp.setText("Đồ thị hàm số");
-        dp.setTextColor(Color.RED);
+        dp.setText("Nguyễn Đức Quân CNTT 14-04");
+        dp.setTextColor(Color.BLUE);
         dp.setTextSize(10f);
         lineChart.setDescription(dp);
+
+        lineChart.setSaveEnabled(true);
+        lineChart.setPinchZoom(true);
         lineChart.invalidate();
 
         //4. Thiết lập chức năng cho nút Button
@@ -114,23 +121,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //4.1. Xử lý các editText trống
                 String et1 = editText1.getText().toString();
-                if (et1.isEmpty()) {
+                if (et1.isEmpty()||et1.equals("-")||et1.equals(".")) {
                     editText1.setText("0");
                 }
                 String et2 = editText2.getText().toString();
-                if (et2.isEmpty()) {
+                if (et2.isEmpty()||et2.equals("-")||et2.equals(".")) {
                     editText2.setText("0");
                 }
                 String et3 = editText3.getText().toString();
-                if (et3.isEmpty()) {
+                if (et3.isEmpty()||et3.equals("-")||et3.equals(".")) {
                     editText3.setText("0");
                 }
                 String et4 = editText4.getText().toString();
-                if (et4.isEmpty()) {
+                if (et4.isEmpty()||et4.equals("-")||et4.equals(".")) {
                     editText4.setText("0");
                 }
                 String et5 = editText5.getText().toString();
-                if (et5.isEmpty()) {
+                if (et5.isEmpty()||et5.equals("-")||et5.equals(".")) {
                     editText5.setText("0");
                 }
                 Float p1 = Float.parseFloat(editText1.getText().toString());
@@ -141,13 +148,28 @@ public class MainActivity extends AppCompatActivity {
 
                 //4.2. Tạo mảng chứa tập hợp các điểm hình thành nên đồ thị
                 List<Entry> entries = new ArrayList<>();
-                for (float x = -15; x <= 15; x += 0.02) {
+                for (float x = -55; x <= 55; x += 0.01) {
                     float y = p1 * x * x * x * x + p2 * x * x * x + p3 * x * x + p4 * x + p5;
                     entries.add(new Entry(x, y));
                 }
                 //4.3 Khai báo dataSet
                 LineDataSet dataSet = new LineDataSet(entries, "y = " + p1 + "x^4 +" + p2 + "x^3 + " + p3 + "x^2 + " + p4 + "x+ " + p5);
-                dataSet.setColor(Color.RED);
+                int i = lineData.getDataSetCount();
+                if(i%7==0){
+                    dataSet.setColor(Color.YELLOW);
+                } else if (i%7==1) {
+                    dataSet.setColor(Color.parseColor("#FFAE00"));
+                } else if (i%7==2) {
+                    dataSet.setColor(Color.RED);
+                } else if (i%7==3) {
+                    dataSet.setColor(Color.GREEN);
+                } else if (i%7==4) {
+                    dataSet.setColor(Color.parseColor("#02C7FC"));
+                } else if (i%7==5) {
+                    dataSet.setColor(Color.parseColor("#2E00FF"));
+                } else if (i%7==6) {
+                    dataSet.setColor(Color.parseColor("#A320D5"));
+                }
                 dataSet.setDrawValues(false);
                 dataSet.setDrawCircles(false);
                 dataSet.setLineWidth(2f);
@@ -160,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
                 lineChart.invalidate();
             }
         });
+        //4.6 Xóa editText
         deleteB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 editText5.setText("");
             }
         });
+        //4.7. Nút Undo
         undoB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
