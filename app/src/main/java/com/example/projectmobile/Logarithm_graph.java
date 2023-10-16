@@ -45,22 +45,18 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Math;
-public class Hyperbol_Graph extends Fragment {
-    private EditText editText1, editText2, editText3, editText4, editText5, editText6;
-    public Button menuButton;
+public class Logarithm_graph extends Fragment {
+    private EditText editText1, editText2, editText3;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.hyperbol_graph, container, false);
+        View view = inflater.inflate(R.layout.logarithm_graph, container, false);
         //1. Gọi các thành phần từ Layout, thiết lập tham số
         LineChart lineChart = view.findViewById(R.id.chart);
         editText1 = view.findViewById(R.id.parameter1);
         editText2 = view.findViewById(R.id.parameter2);
         editText3 = view.findViewById(R.id.parameter3);
-        editText4 = view.findViewById(R.id.parameter4);
-        editText5 = view.findViewById(R.id.parameter5);
-        editText6 = view.findViewById(R.id.parameter6);
 
         Button executeB = view.findViewById(R.id.executeB);
         Button deleteB = view.findViewById(R.id.deleteButton);
@@ -98,7 +94,7 @@ public class Hyperbol_Graph extends Fragment {
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setAxisMaximum(55f);
-        xAxis.setAxisMinimum(-55f);
+        xAxis.setAxisMinimum(-15f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
@@ -139,76 +135,52 @@ public class Hyperbol_Graph extends Fragment {
                 //4.1. Xử lý các editText trống
                 String et1 = editText1.getText().toString();
                 if (et1.isEmpty() || et1.equals("-") || et1.equals(".")) {
-                    editText1.setText("0");
+                    editText1.setText("1");
                 }
                 String et2 = editText2.getText().toString();
-                if (et2.isEmpty() || et2.equals("-") || et2.equals(".")) {
-                    editText2.setText("0");
+                if (et2.isEmpty() || et2.equals("1") || et2.equals("e")) {
+                    editText2.setText("2.718");
                 }
                 String et3 = editText3.getText().toString();
                 if (et3.isEmpty() || et3.equals("-") || et3.equals(".")) {
-                    editText3.setText("0");
-                }
-                String et4 = editText4.getText().toString();
-                if (et4.isEmpty() || et4.equals("-") || et4.equals(".")) {
-                    editText4.setText("0");
-                }
-                String et5 = editText5.getText().toString();
-                if (et5.isEmpty() || et5.equals("-") || et5.equals(".")) {
-                    editText5.setText("0");
-                }
-                String et6 = editText6.getText().toString();
-                if (et6.isEmpty() || et6.equals("-") || et6.equals(".")) {
-                    editText6.setText("0");
-                }
-                if(et4.isEmpty() && et5.isEmpty() && et6.isEmpty()){
-                    editText6.setText("1");
+                    editText3.setText("1");
                 }
                 Float p1 = Float.parseFloat(editText1.getText().toString());
                 Float p2 = Float.parseFloat(editText2.getText().toString());
                 Float p3 = Float.parseFloat(editText3.getText().toString());
-                Float p4 = Float.parseFloat(editText4.getText().toString());
-                Float p5 = Float.parseFloat(editText5.getText().toString());
-                Float p6 = Float.parseFloat(editText6.getText().toString());
-
+                if(editText2.getText().equals("2.718")) {
+                    editText2.setText("e");
+                }
                 //4.2. Tạo mảng chứa tập hợp các điểm hình thành nên đồ thị
                 List<Entry> entries = new ArrayList<>();
-                List<Entry> entries1 = new ArrayList<>();
-                for (float x = -55; x < 55; x += 0.01f) {
-                    float y = (float) (p1 * x * x + p2 * x + p3) / (p4 * x * x + p5 * x + p6);
-                    if(p4 * x * x + p5 * x + p6 > 0) {
-                        entries.add(new Entry(x, y));
-                    }else if (p4 * x * x + p5 * x + p6 < 0){
-                        entries1.add(new Entry(x, y));
-                    }
+                for(float x = 0.01f; x<55; x+=0.01f)
+                {
+                    float y = (float) (p3*(Math.log(p3*x)/Math.log(p2)));
+                    entries.add(new Entry(x, y));
                 }
                 //4.3 Khai báo dataSet
                 LineDataSet dataSet = new LineDataSet(entries, "");
-                LineDataSet dataSet1 = new LineDataSet(entries1, "");
                 int i = lineData.getDataSetCount();
-                if((i-2)/2 % 3 == 0){
-                    dataSet.setColor(Color.GREEN);
-                    dataSet1.setColor(Color.GREEN);
-                } else if ((i-2)/2 % 3 == 1){
+                if (i % 7 == 0) {
+                    dataSet.setColor(Color.YELLOW);
+                } else if (i % 7 == 1) {
+                    dataSet.setColor(Color.parseColor("#FFAE00"));
+                } else if (i % 7 == 2) {
                     dataSet.setColor(Color.RED);
-                    dataSet1.setColor(Color.RED);
-                } else{
-                    dataSet.setColor(Color.BLUE);
-                    dataSet1.setColor(Color.BLUE);
+                } else if (i % 7 == 3) {
+                    dataSet.setColor(Color.GREEN);
+                } else if (i % 7 == 4) {
+                    dataSet.setColor(Color.parseColor("#02C7FC"));
+                } else if (i % 7 == 5) {
+                    dataSet.setColor(Color.parseColor("#2E00FF"));
+                } else if (i % 7 == 6) {
+                    dataSet.setColor(Color.parseColor("#A320D5"));
                 }
-
                 dataSet.setDrawValues(false);
                 dataSet.setDrawCircles(false);
                 dataSet.setLineWidth(2f);
-
-
-                dataSet1.setDrawValues(false);
-                dataSet1.setDrawCircles(false);
-                dataSet1.setLineWidth(2f);
-
                 //4.4. Tạo một LineData chứa LineDataSet của đường kẻ
                 lineData.addDataSet(dataSet);
-                lineData.addDataSet(dataSet1);
                 lineChart.setData(lineData);
 
                 //4.5. Vẽ đồ thị
@@ -222,9 +194,6 @@ public class Hyperbol_Graph extends Fragment {
                 editText1.setText("");
                 editText2.setText("");
                 editText3.setText("");
-                editText4.setText("");
-                editText5.setText("");
-                editText6.setText("");
             }
         });
         //4.7. Nút Undo
@@ -232,9 +201,7 @@ public class Hyperbol_Graph extends Fragment {
             @Override
             public void onClick(View view) {
                 int i = lineData.getDataSetCount();
-                if (i > 3) {
-                    lineData.removeDataSet(i - 2);
-                }else if(i>2){
+                if (i > 2) {
                     lineData.removeDataSet(i - 1);
                 }
                 lineChart.invalidate();

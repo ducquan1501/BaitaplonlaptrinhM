@@ -103,6 +103,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Ellipse_graph())
                     .commit();
+            getSupportActionBar().setTitle("Đồ thị đường tròn & ellipse");
+        } else if (item.getItemId()==R.id.logarithmic_graph){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Logarithm_graph())
+                    .commit();
+            getSupportActionBar().setTitle("Đồ thị Logarith");
+        } else if (item.getItemId()==R.id.trigo_graph){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Trigo_graph())
+                    .commit();
+            getSupportActionBar().setTitle("Đồ thị lượng giác");
         }
         drawerLayout.closeDrawer(GravityCompat.START, true);
         return true;
