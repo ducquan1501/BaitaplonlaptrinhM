@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:title="Đồ thị">
+            <menu>
+                <item
+                    android:id="@+id/basic_graph"
+                    android:title="Đồ thị hàm đa thức"
+                    android:icon="@drawable/basic"/>
+                <item
+                    android:id="@+id/hyperbol_graph"
+                    android:title="Đồ thị Hyperbol"
+                    android:icon="@drawable/hyperbole"/>
+                <item
+                    android:id="@+id/ellipse_graph"
+                    android:title="Đồ thị đường tròn"
+                    android:icon="@drawable/ellipse"/>
+                <item
+                    android:id="@+id/logarithmic_graph"
+                    android:title="Đồ thị hàm Logarith"
+                    android:icon="@drawable/logarithm"/>
+                <item
+                    android:id="@+id/trigo_graph"
+                    android:title="Đồ thị lượng giác"
+                    android:icon="@drawable/trigonometry"/>
+                <item
+                    android:id="@+id/generality_graph"
+                    android:title="Đồ thị đa thức tổng quát"
+                        android:icon="@drawable/function"/>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/library"
+            android:title="Thư viện"
+            android:icon="@drawable/baseline_local_library_24"/>
+        <item
+            android:id="@+id/setting"
+            android:title="Cài đặt"
+            android:icon="@drawable/baseline_settings_24"/>
+        <item
+            android:id="@+id/guide"
+            android:title="Hướng dẫn sử dụng"
+            android:icon="@drawable/guide"
+            />
+    </group>
+</menu>

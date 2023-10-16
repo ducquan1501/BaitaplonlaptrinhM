@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .replace(R.id.fragment_container, new Hyperbol_Graph())
                     .commit();
             getSupportActionBar().setTitle("Đồ thị dạng Hyperbol");
+        } else if (item.getItemId()==R.id.ellipse_graph){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Ellipse_graph())
+                    .commit();
         }
         drawerLayout.closeDrawer(GravityCompat.START, true);
         return true;

@@ -5,7 +5,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logarithm"
+        android:icon="@drawable/sinus"
         android:label="Vẽ Đồ Thị Hàm Số"
         android:roundIcon="@color/white"
         android:supportsRtl="true"
