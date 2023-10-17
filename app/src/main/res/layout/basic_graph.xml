@@ -173,7 +173,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintVertical_bias="0.06">
+                app:layout_constraintVertical_bias="0.02">
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/executeB"
                     android:layout_width="match_parent"
@@ -190,7 +190,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintVertical_bias="0.2">
+                app:layout_constraintVertical_bias="0.12">
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/undoB"
                     android:layout_width="match_parent"

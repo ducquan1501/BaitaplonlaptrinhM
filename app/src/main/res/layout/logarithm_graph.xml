@@ -23,27 +23,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1.3"
                 android:text="y = "
                 android:textSize="40dp" />
             <EditText
                 android:id="@+id/parameter1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
                 android:textSize="30dp"
                 android:inputType="numberSigned|numberDecimal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
                 android:text="log"
                 android:textSize="40dp" />
             <EditText
                 android:id="@+id/parameter2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.5"
                 android:inputType="numberDecimal"
                 android:textSize="20dp"/>
             <TextView
@@ -56,12 +52,10 @@
                 android:id="@+id/parameter3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:textSize="30dp"
                 android:inputType="numberSigned|numberDecimal"/>
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1.5"
                 android:layout_height="match_parent"
                 android:text="x)"
                 android:textSize="40dp"/>
