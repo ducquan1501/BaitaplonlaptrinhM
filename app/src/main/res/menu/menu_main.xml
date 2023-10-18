@@ -16,7 +16,7 @@
                     android:icon="@drawable/hyperbole"/>
                 <item
                     android:id="@+id/ellipse_graph"
-                    android:title="Đồ thị đường tròn"
+                    android:title="Đồ thị đường tròn &amp; ellipse"
                     android:icon="@drawable/ellipse"/>
                 <item
                     android:id="@+id/logarithmic_graph"
@@ -33,11 +33,11 @@
             </menu>
         </item>
     </group>
+    <item
+        android:icon="@drawable/baseline_local_library_24"
+        android:title="Thư viện"
+        android:id="@+id/library"/>
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/library"
-            android:title="Thư viện"
-            android:icon="@drawable/baseline_local_library_24"/>
         <item
             android:id="@+id/setting"
             android:title="Cài đặt"

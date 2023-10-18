@@ -109,8 +109,8 @@ public class Logarithm_graph extends Fragment {
         YAxis yAxisR = lineChart.getAxisRight();
         yAxisR.setEnabled(false);
         yAxis.setDrawLabels(true);
-        yAxis.setAxisMaximum(100f);
-        yAxis.setAxisMinimum(-100f);
+        yAxis.setAxisMaximum(66f);
+        yAxis.setAxisMinimum(-66f);
         yAxis.setGranularity(0.1f);
         yAxis.setLabelCount(16);
 
@@ -155,7 +155,7 @@ public class Logarithm_graph extends Fragment {
                 List<Entry> entries = new ArrayList<>();
                 for(float x = 0.01f; x<55; x+=0.01f)
                 {
-                    float y = (float) (p3*(Math.log(p3*x)/Math.log(p2)));
+                    float y = (float) (p1*(Math.log(p3*x)/Math.log(p2)));
                     entries.add(new Entry(x, y));
                 }
                 //4.3 Khai báo dataSet

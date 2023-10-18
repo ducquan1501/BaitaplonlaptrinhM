@@ -48,7 +48,6 @@ import java.lang.Math;
 public class Trigo_graph extends Fragment {
     private EditText editText1, editText2, editText3, editText4, editText5, editText6,
             editText7, editText8;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -117,8 +116,8 @@ public class Trigo_graph extends Fragment {
         YAxis yAxisR = lineChart.getAxisRight();
         yAxisR.setEnabled(false);
         yAxis.setDrawLabels(true);
-        yAxis.setAxisMaximum(30f);
-        yAxis.setAxisMinimum(-30f);
+        yAxis.setAxisMaximum(15f);
+        yAxis.setAxisMinimum(-15f);
         yAxis.setGranularity(0.1f);
         yAxis.setLabelCount(16);
 

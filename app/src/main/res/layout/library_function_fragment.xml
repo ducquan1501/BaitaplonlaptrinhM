@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="về Hàm số cơ bản"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=" - Người ta kể rằng có một lần,
+Descartes lâm bệnh, nằm trên giường,
+nhìn lên trần nhà. Ông thấy một con nhện
+đang bò ở trần nhà. Descartes gọi x là khoảng
+cách từ con nhện đến một bức tường,
+gọi y là khoảng cách từ con nhện đến bức tường còn lại,
+thì khi đó nếu biết x và y thì có thể xác định được chính xác vị trí của con nhện."
+                android:textSize="20dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="  Đó chính là sự ra đời của hệ trục
+Descartes vuông góc mà chúng ta biết đến ngày nay. "
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

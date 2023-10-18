@@ -1,21 +1,8 @@
 package com.example.projectmobile;
 
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridLayout;
-import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -23,28 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
-import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.DataSet;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.example.projectmobile.library_resource.Library_home;
 import com.google.android.material.navigation.NavigationView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.lang.Math;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public ActionBarDrawerToggle toggle;
     public DrawerLayout drawerLayout;
@@ -93,32 +62,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Basic_Graph())
                     .commit();
-            getSupportActionBar().setTitle("Đồ thị hàm cơ bản");
+            getSupportActionBar().setTitle("Đồ thị hàm đa thức");
         } else if (item.getItemId() == R.id.hyperbol_graph) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Hyperbol_Graph())
                     .commit();
-            getSupportActionBar().setTitle("Đồ thị dạng Hyperbol");
-        } else if (item.getItemId()==R.id.ellipse_graph){
+            getSupportActionBar().setTitle("Đồ thị Hyperbol");
+        } else if (item.getItemId() == R.id.ellipse_graph) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Ellipse_graph())
                     .commit();
             getSupportActionBar().setTitle("Đồ thị đường tròn & ellipse");
-        } else if (item.getItemId()==R.id.logarithmic_graph){
+        } else if (item.getItemId() == R.id.logarithmic_graph) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Logarithm_graph())
                     .commit();
             getSupportActionBar().setTitle("Đồ thị Logarith");
-        } else if (item.getItemId()==R.id.trigo_graph){
+        } else if (item.getItemId() == R.id.trigo_graph) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Trigo_graph())
                     .commit();
             getSupportActionBar().setTitle("Đồ thị lượng giác");
+        } else if (item.getItemId() == R.id.library) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Library_home())
+                    .commit();
+            getSupportActionBar().setTitle("Thư viện");
         }
-        drawerLayout.closeDrawer(GravityCompat.START, true);
-        return true;
-    }
-
+            drawerLayout.closeDrawer(GravityCompat.START, true);
+            return true;
+        }
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
