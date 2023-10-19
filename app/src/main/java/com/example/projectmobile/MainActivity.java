@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Đồ thị hàm cơ bản");
@@ -55,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.basic_graph) {
@@ -93,6 +91,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .replace(R.id.fragment_container, new Generality_graph())
                     .commit();
             getSupportActionBar().setTitle("Đồ thị tổng quát");
+        }else if (item.getItemId() == R.id.guide){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Guide())
+                    .commit();
+            getSupportActionBar().setTitle("Hướng dẫn sử dụng");
+        }
+        else if (item.getItemId() == R.id.info){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Infor())
+                    .commit();
+            getSupportActionBar().setTitle("Thông tin ứng dụng");
         }
             drawerLayout.closeDrawer(GravityCompat.START, true);
             return true;

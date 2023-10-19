@@ -19,6 +19,5 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         }, 4444);
-        // Thêm mã xử lý nếu cần
     }
 }
