@@ -6,6 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:background="@drawable/kurzgesagtbgrd"
     tools:actionBarNavMode="list"
     tools:context=".MainActivity"
     tools:ignore="HardcodedText">
@@ -25,6 +26,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:text="y ="
+                android:textColor="@color/white"
                 android:textSize="50dp"
                 android:gravity="center_horizontal"/>
             <LinearLayout
@@ -41,67 +43,73 @@
                     android:weightSum="10">
                     <EditText
                         android:id="@+id/parameter1"
-                        android:textColor="@color/gray"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="sin("
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <EditText
                         android:id="@+id/parameter2"
-                        android:textColor="@color/gray"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="x"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=")+"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <EditText
                         android:id="@+id/parameter3"
-                        android:textColor="@color/gray"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="cos("
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <EditText
                         android:id="@+id/parameter4"
-                        android:textColor="@color/gray"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="x"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=")+"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                 </LinearLayout>
                 <LinearLayout
@@ -114,65 +122,71 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:id="@+id/parameter5"
-                        android:textColor="@color/gray"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="tan("
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:id="@+id/parameter6"
-                        android:textColor="@color/gray"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="x"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=")+"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:textSize="20dp"
+                        android:textColor="@color/white"
                         android:paddingBottom="3dp"
                         android:id="@+id/parameter7"
-                        android:textColor="@color/gray"
                         android:inputType="numberDecimal|numberSigned"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="cotg("
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <EditText
                         android:layout_width="25dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0"
+                        android:textColor="@color/white"
                         android:inputType="numberDecimal|numberSigned"
                         android:id="@+id/parameter8"
-                        android:textColor="@color/gray"
                         android:textSize="20dp"
                         android:paddingBottom="3dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="x"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text=")"
+                        android:textColor="@color/white"
                         android:textSize="30dp"/>
                 </LinearLayout>
                 <LinearLayout

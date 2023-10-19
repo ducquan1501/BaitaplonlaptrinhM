@@ -6,6 +6,7 @@
     android:id="@+id/drawer_layout"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:background="@drawable/kurzgesagtbgrd"
     tools:actionBarNavMode="list"
     tools:context=".MainActivity"
     tools:ignore="HardcodedText">
@@ -25,6 +26,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="("
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <EditText
@@ -32,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:inputType="numberSigned|numberDecimal"/>
             <TextView
@@ -39,6 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="x"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <TextView
@@ -46,6 +50,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="+"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <EditText
@@ -53,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:inputType="numberDecimal|numberSigned"/>
             <TextView
@@ -60,6 +66,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text=")"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <TextView
@@ -67,6 +74,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="2"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:gravity="center"/>
             <TextView
@@ -74,6 +82,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="+"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <TextView
@@ -81,6 +90,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="("
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <EditText
@@ -88,6 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:inputType="numberSigned|numberDecimal"/>
             <TextView
@@ -95,6 +106,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="y"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <TextView
@@ -102,6 +114,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="+"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <EditText
@@ -110,12 +123,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:textSize="30dp"
+                android:textColor="@color/white"
                 android:inputType="numberDecimal|numberSigned"/>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:text=")"
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <TextView
@@ -123,6 +138,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:text="2"
+                android:textColor="@color/white"
                 android:textSize="20dp"
                 android:gravity="center"/>
             <TextView
@@ -130,6 +146,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.7"
                 android:text="="
+                android:textColor="@color/white"
                 android:textSize="30dp"
                 android:gravity="center"/>
             <EditText
@@ -137,6 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1.2"
+                android:textColor="@color/white"
                 android:inputType="numberDecimal|numberSigned"
                 android:textSize="30dp"/>
         </LinearLayout>

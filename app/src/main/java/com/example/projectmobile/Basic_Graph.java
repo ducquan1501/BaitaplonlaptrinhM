@@ -81,17 +81,17 @@ public class Basic_Graph extends Fragment {
         zeroLineEntriesY.add(new Entry(0f, 100f));
         zeroLineEntriesY.add(new Entry(0f, -100f));
 
-        //2. Tạo DataSet cho các đường trục tung, trục hoành
+        //2. Tạo DataSet cho các đường trục tung, trục hoành, đồng thời cấu hình đồ họa cho các trục
         LineDataSet zeroLineDataSetX = new LineDataSet(zeroLineEntriesX, "Ox");
         zeroLineDataSetX.setDrawValues(false);
         zeroLineDataSetX.setDrawCircles(false);
-        zeroLineDataSetX.setColor(Color.BLACK);
+        zeroLineDataSetX.setColor(Color.WHITE);
         zeroLineDataSetX.setLineWidth(3f);
 
         LineDataSet zeroLineDataSetY = new LineDataSet(zeroLineEntriesY, "Oy");
         zeroLineDataSetX.setDrawValues(false);
         zeroLineDataSetY.setDrawCircles(false);
-        zeroLineDataSetY.setColor(Color.BLACK);
+        zeroLineDataSetY.setColor(Color.WHITE);
         zeroLineDataSetY.setLineWidth(3f);
 
         LineData lineData = new LineData(zeroLineDataSetX, zeroLineDataSetY);
@@ -127,9 +127,11 @@ public class Basic_Graph extends Fragment {
 
         Description dp = new Description();
         dp.setText("Nguyễn Đức Quân CNTT 14-04");
-        dp.setTextColor(Color.BLUE);
+        dp.setTextColor(Color.WHITE);
         dp.setTextSize(10f);
 
+        lineChart.getXAxis().setTextColor(Color.WHITE);
+        lineChart.getAxisLeft().setTextColor(Color.WHITE);
         lineChart.setDescription(dp);
         lineChart.setSaveEnabled(true);
         lineChart.setPinchZoom(true);

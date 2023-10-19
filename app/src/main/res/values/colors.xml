@@ -6,4 +6,10 @@
     <color name="truegreen">#07D71D</color>
     <color name="truepurple">#8F00AC</color>
     <color name="blue01">#1D9FD4</color>
+    <color name="color_icon">
+        <selector xmlns:android="http://schemas.android.com/apk/res/android">
+            <item android:color="@color/white" android:state_checked="true"/>
+            <item android:color="@color/black" android:state_checked="true"/>
+        </selector>
+    </color>
 </resources>

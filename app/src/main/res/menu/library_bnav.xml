@@ -9,7 +9,7 @@
     <item
         android:id="@+id/constNum"
         android:icon="@drawable/pi"
-        android:title="Hằng số" />
+        android:title="Hằng số"/>
     <item
         android:id="@+id/function"
         android:icon="@drawable/function"

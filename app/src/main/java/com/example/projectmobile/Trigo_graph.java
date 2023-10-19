@@ -85,13 +85,13 @@ public class Trigo_graph extends Fragment {
         LineDataSet zeroLineDataSetX = new LineDataSet(zeroLineEntriesX, "Ox");
         zeroLineDataSetX.setDrawValues(false);
         zeroLineDataSetX.setDrawCircles(false);
-        zeroLineDataSetX.setColor(Color.BLACK);
+        zeroLineDataSetX.setColor(Color.WHITE);
         zeroLineDataSetX.setLineWidth(3f);
 
         LineDataSet zeroLineDataSetY = new LineDataSet(zeroLineEntriesY, "Oy");
         zeroLineDataSetX.setDrawValues(false);
         zeroLineDataSetY.setDrawCircles(false);
-        zeroLineDataSetY.setColor(Color.BLACK);
+        zeroLineDataSetY.setColor(Color.WHITE);
         zeroLineDataSetY.setLineWidth(3f);
 
         LineData lineData = new LineData(zeroLineDataSetX, zeroLineDataSetY);
@@ -100,8 +100,8 @@ public class Trigo_graph extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(55f);
-        xAxis.setAxisMinimum(-55f);
+        xAxis.setAxisMaximum(16f);
+        xAxis.setAxisMinimum(-16f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
@@ -116,8 +116,8 @@ public class Trigo_graph extends Fragment {
         YAxis yAxisR = lineChart.getAxisRight();
         yAxisR.setEnabled(false);
         yAxis.setDrawLabels(true);
-        yAxis.setAxisMaximum(15f);
-        yAxis.setAxisMinimum(-15f);
+        yAxis.setAxisMaximum(28f);
+        yAxis.setAxisMinimum(-28f);
         yAxis.setGranularity(0.1f);
         yAxis.setLabelCount(16);
 
@@ -127,10 +127,12 @@ public class Trigo_graph extends Fragment {
 
         Description dp = new Description();
         dp.setText("Nguyễn Đức Quân CNTT 14-04");
-        dp.setTextColor(Color.BLUE);
+        dp.setTextColor(Color.WHITE);
         dp.setTextSize(10f);
         lineChart.setDescription(dp);
 
+        lineChart.getXAxis().setTextColor(Color.WHITE);
+        lineChart.getAxisLeft().setTextColor(Color.WHITE);
         lineChart.setSaveEnabled(true);
         lineChart.setPinchZoom(true);
         lineChart.invalidate();

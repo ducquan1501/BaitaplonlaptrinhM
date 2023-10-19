@@ -7,11 +7,99 @@
     <FrameLayout
         android:id="@+id/library_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:background="@drawable/katie"
+            android:orientation="horizontal"
+            android:weightSum="15">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="13">
+                <ImageView
+                    android:id="@+id/imgView"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/descartes"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintVertical_bias="0"/>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:alpha="0.1"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/imgView"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/cardView2"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:paddingLeft="3dp"
+                    android:text="René Descartes (1596-1650) được xem là người phát minh ra hệ trục tọa độ X, Y.
+                                 \nThời trẻ, người sĩ quan René Descartes băn khoăn không biết làm sao để miêu tả đường đi của những con ngựa trên đường băng hay quỹ đạo của những vệt sao băng trên bầu trời.
+                                 \nLà người có thể trạng ốm yếu bẩm sinh, Descartes thường dành nhiều thời gian để nghỉ ngơi trên giường. Một ngày nọ, trong giấc ngủ dài, ông mơ màng thấy một con nhện đu đưa trên cái lưới của mình, đi xuống rồi đi lên...
+Với bộ óc thiên tài, ông lập tức liên hệ X là khoảng cách từ con nhện tới một bức tường, Y là khoảng cách đến bức tường còn lại, và nếu biết X, Y thì ta có thể biết được vị trí của con nhện.
+\nĐó là sự ra đời của hệ trục Descartes vuông góc mà ta biết ngày nay."
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="@id/cardView1"
+                    app:layout_constraintTop_toTopOf="@id/cardView1"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:alpha="0.1"
+                    app:cardCornerRadius="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.9"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="'Tôi tư duy tức là tôi tồn tại'"
+                    android:gravity="center_horizontal"
+                    android:textSize="28dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toTopOf="@id/cardView2"
+                    app:layout_constraintBottom_toBottomOf="@id/cardView2"/>
+                <TextView
+                    android:layout_width="140dp"
+                    android:layout_height="30dp"
+                    android:text="-René Descartes-"
+                    android:textSize="15dp"
+                    android:textColor="@color/white"
+                    app:layout_constraintVertical_bias="0.9"
+                    app:layout_constraintBottom_toBottomOf="@id/cardView2"
+                    app:layout_constraintTop_toTopOf="@id/cardView2"
+                    app:layout_constraintRight_toRightOf="@id/cardView2"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </FrameLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/libray_bnav"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
+        android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/library_bnav"/>
+        app:menu="@menu/library_bnav"
+        app:itemTextAppearanceActive="@color/white"
+        app:itemTextColor="@color/white"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

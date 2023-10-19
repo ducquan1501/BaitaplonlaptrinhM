@@ -1,41 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    android:background="@drawable/katie">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="10"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:layout_weight="9">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView1"
+                android:layout_width="384dp"
+                android:layout_height="100dp"
+                android:alpha="0.075"
+                android:background="@android:color/black"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </androidx.cardview.widget.CardView>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="về Hàm số cơ bản"
+                android:layout_width="364dp"
+                android:layout_height="50dp"
+                android:text="Hàm đa thức phổ thông thường có dạng:"
+                android:textColor="@color/white"
                 android:textSize="20dp"
-                android:layout_marginLeft="20dp"
-                />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text=" - Người ta kể rằng có một lần,
-Descartes lâm bệnh, nằm trên giường,
-nhìn lên trần nhà. Ông thấy một con nhện
-đang bò ở trần nhà. Descartes gọi x là khoảng
-cách từ con nhện đến một bức tường,
-gọi y là khoảng cách từ con nhện đến bức tường còn lại,
-thì khi đó nếu biết x và y thì có thể xác định được chính xác vị trí của con nhện."
-                android:textSize="20dp"
-                />
+                android:layout_width="384dp"
+                android:layout_height="50dp"
+                android:text="y=ax^4 + bx^3 + cx^2 + dx + e"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/cardView1"
+                app:layout_constraintHorizontal_bias="0.6"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="384dp"
+                android:layout_height="100dp"
+                android:alpha="0.075"
+                android:background="@android:color/black"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toTopOf="@id/cardView3"
+                app:layout_constraintHorizontal_bias="0.604"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView1"/>
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="  Đó chính là sự ra đời của hệ trục
-Descartes vuông góc mà chúng ta biết đến ngày nay. "
+                android:layout_width="364dp"
+                android:layout_height="50dp"
+                android:text="Hàm Hyperbole:"
+                android:textColor="@color/white"
                 android:textSize="20dp"
-                />
-        </LinearLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView2"
+                app:layout_constraintBottom_toBottomOf="@id/cardView2"
+                app:layout_constraintVertical_bias="0.15"/>
+            <TextView
+                android:layout_width="384dp"
+                android:layout_height="50dp"
+                android:text="y=(ax^2+bx+c)/(dx^2+ex+f)"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView2"
+                app:layout_constraintBottom_toBottomOf="@id/cardView2"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintHorizontal_bias="0.6"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="384dp"
+                android:layout_height="100dp"
+                android:alpha="0.075"
+                android:background="@android:color/black"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toTopOf="@id/cardView4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView2"/>
+            <TextView
+                android:layout_width="364dp"
+                android:layout_height="50dp"
+                android:text="Hàm Logarithm:"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView3"
+                app:layout_constraintBottom_toBottomOf="@id/cardView3"
+                app:layout_constraintVertical_bias="0.05"/>
+            <TextView
+                android:layout_width="384dp"
+                android:layout_height="50dp"
+                android:text="y=a*logb(c) (b>0 &amp; b=/1 &amp; c>0)"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView3"
+                app:layout_constraintBottom_toBottomOf="@id/cardView3"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintHorizontal_bias="0.6"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_width="384dp"
+                android:layout_height="150dp"
+                android:alpha="0.075"
+                android:background="@android:color/black"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toTopOf="@id/cardView5"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView3" />
+            <TextView
+                android:layout_width="364dp"
+                android:layout_height="50dp"
+                android:text="Đồ thị hình tròn &amp; ellipse"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView4"
+                app:layout_constraintBottom_toBottomOf="@id/cardView4"
+                app:layout_constraintVertical_bias="0.05"/>
+            <TextView
+                android:layout_width="384dp"
+                android:layout_height="50dp"
+                android:text="(x-a)^2 + (y-b)^ = r^2"
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView4"
+                app:layout_constraintBottom_toBottomOf="@id/cardView4"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.6"/>
+            <TextView
+                android:layout_width="384dp"
+                android:layout_height="50dp"
+                android:text="(a,b) là tọa độ tâm hình học, r là bán kính của đường tròn"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView4"
+                app:layout_constraintBottom_toBottomOf="@id/cardView4"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintHorizontal_bias="0.6"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
+                android:layout_width="384dp"
+                android:layout_height="100dp"
+                android:alpha="0.075"
+                android:background="@android:color/black"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView4"
+                app:layout_constraintVertical_bias="0.44" />
+            <TextView
+                android:layout_width="364dp"
+                android:layout_height="50dp"
+                android:text="Hàm Lượng giác:"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView5"
+                app:layout_constraintBottom_toBottomOf="@id/cardView5"
+                app:layout_constraintVertical_bias="0.05"/>
+            <TextView
+                android:layout_width="384dp"
+                android:layout_height="50dp"
+                android:text="y=sin(x) + cos(x) +..."
+                android:textSize="25dp"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/cardView5"
+                app:layout_constraintBottom_toBottomOf="@id/cardView5"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintHorizontal_bias="0.6"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
