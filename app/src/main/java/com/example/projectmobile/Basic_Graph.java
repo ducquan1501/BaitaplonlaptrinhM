@@ -49,7 +49,6 @@ import java.util.List;
 import java.lang.Math;
 public class Basic_Graph extends Fragment {
     private EditText editText1, editText2, editText3, editText4, editText5;
-    public Button menuButton;
 
     @Nullable
     @Override

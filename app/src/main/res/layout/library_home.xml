@@ -18,7 +18,6 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -38,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="500dp"
                     android:alpha="0.1"
-                    app:cardCornerRadius="10dp"
+                    app:cardCornerRadius="30dp"
                     app:layout_constraintTop_toBottomOf="@id/imgView"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -46,7 +45,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="500dp"
-                    android:paddingLeft="3dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:text="René Descartes (1596-1650) được xem là người phát minh ra hệ trục tọa độ X, Y.
                                  \nThời trẻ, người sĩ quan René Descartes băn khoăn không biết làm sao để miêu tả đường đi của những con ngựa trên đường băng hay quỹ đạo của những vệt sao băng trên bầu trời.
                                  \nLà người có thể trạng ốm yếu bẩm sinh, Descartes thường dành nhiều thời gian để nghỉ ngơi trên giường. Một ngày nọ, trong giấc ngủ dài, ông mơ màng thấy một con nhện đu đưa trên cái lưới của mình, đi xuống rồi đi lên...

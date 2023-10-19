@@ -88,6 +88,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     .replace(R.id.fragment_container, new Library_home())
                     .commit();
             getSupportActionBar().setTitle("Thư viện");
+        }else if (item.getItemId() == R.id.generality_graph){
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new Generality_graph())
+                    .commit();
+            getSupportActionBar().setTitle("Đồ thị tổng quát");
         }
             drawerLayout.closeDrawer(GravityCompat.START, true);
             return true;
