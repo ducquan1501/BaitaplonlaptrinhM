@@ -178,9 +178,9 @@
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="-60dp"
-                tools:layout_editor_absoluteY="16dp">
+                android:layout_height="700dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
             </com.github.mikephil.charting.charts.LineChart>
             <androidx.cardview.widget.CardView
                 android:id="@+id/executeBCardView"
@@ -217,4 +217,12 @@
                     android:drawableTop="@drawable/baseline_replay_24"/>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/basic_graph_bnav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/black"
+        app:itemTextColor="@color/white"
+        app:itemTextAppearanceActive="@color/white"
+        app:menu="@menu/basic_graph_bnav"/>
+</LinearLayout>

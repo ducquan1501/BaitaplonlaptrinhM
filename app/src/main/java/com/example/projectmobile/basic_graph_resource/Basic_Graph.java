@@ -1,53 +1,35 @@
-package com.example.projectmobile;
+package com.example.projectmobile.basic_graph_resource;
 
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.projectmobile.R;
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.github.mikephil.charting.formatter.ValueFormatter;
-import com.github.mikephil.charting.utils.ViewPortHandler;
-import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.lang.Math;
-public class Basic_Graph extends Fragment {
+
+public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener{
     private EditText editText1, editText2, editText3, editText4, editText5;
 
     @Nullable
@@ -55,6 +37,8 @@ public class Basic_Graph extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.basic_graph, container, false);
+        BottomNavigationView bottomNavigationView = view.findViewById(R.id.basic_graph_bnav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
         //1. Gọi các thành phần từ Layout, thiết lập tham số
         LineChart lineChart = view.findViewById(R.id.chart);
         editText1 = view.findViewById(R.id.parameter1);
@@ -226,5 +210,19 @@ public class Basic_Graph extends Fragment {
             }
         });
         return view;
+    }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+
+        if(item.getItemId()==R.id.basic_graph_item){
+            transaction.replace(R.id.basic_graph_item, this).commit();
+        }
+        else if (item.getItemId()==R.id.history_item){
+            transaction.replace(R.id.history_item, new Basic_History()).commit();
+        }
+        else if (item.getItemId()==R.id.setting_item){
+            transaction.replace(R.id.setting_item, new Basic_Setting()).commit();
+        }
+        return true;
     }
 }
