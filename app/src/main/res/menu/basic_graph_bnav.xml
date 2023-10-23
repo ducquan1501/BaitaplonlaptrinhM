@@ -7,12 +7,8 @@
             android:title="Đồ thị"
             />
         <item
-            android:icon="@drawable/baseline_history_24"
-            android:id="@+id/history_item"
-            android:title="Lịch sử"/>
-        <item
-            android:icon="@drawable/baseline_settings_24"
-            android:id="@+id/setting_item"
-            android:title="Cài đặt"/>
+            android:icon="@drawable/baseline_calculate_24"
+            android:id="@+id/calculator_item"
+            android:title="Máy tính"/>
     </group>
 </menu>
