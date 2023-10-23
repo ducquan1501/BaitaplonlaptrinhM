@@ -47,7 +47,7 @@ public class Generality_graph extends Fragment {
         //2. Tạo đường trục tung, trục hoành
         //2.1. Xây dựng Entry - tập hợp các phần tử để tạo thành đồ thị
         ArrayList<Entry> zeroLineEntriesX = new ArrayList<>();
-        for (float x0 = -55; x0 <= 55; x0 += 0.1) {
+        for (float x0 = -65; x0 <= 65; x0 += 0.1) {
             float y0 = 0;
             zeroLineEntriesX.add(new Entry(x0, y0));
         }
@@ -75,8 +75,8 @@ public class Generality_graph extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(55f);
-        xAxis.setAxisMinimum(-55f);
+        xAxis.setAxisMaximum(62.621f);
+        xAxis.setAxisMinimum(-62.621f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
@@ -152,12 +152,12 @@ public class Generality_graph extends Fragment {
                 List<Entry> entries = new ArrayList<>();
                 List<Entry> entries2 = new ArrayList<>();
                 if(ExponentCheck(p2)||ExponentCheck(p4)||ExponentCheck(p6)) {
-                    for (double x = 0.0001; x < 55; x += 0.01) {
+                    for (double x = 0.0001; x < 65; x += 0.01) {
                         double y = p1 * Math.pow(x, p2) + p3 * Math.pow(x, p4) + p5 * Math.pow(x, p6);
                         entries.add(new Entry((float) x, (float) y));
                     }
                 } else{
-                    for (double x = -55.0001; x <= 55; x += 0.01) {
+                    for (double x = -65.0001; x <= 55; x += 0.01) {
                         double y = p1 * Math.pow(x, p2) + p3 * Math.pow(x, p4) + p5 * Math.pow(x, p6);
                         if (x < 0) {
                             entries.add(new Entry((float) x, (float) y));

@@ -38,5 +38,4 @@ public class Library_home extends Fragment implements BottomNavigationView.OnNav
         }
         return true;
     }
-
 }

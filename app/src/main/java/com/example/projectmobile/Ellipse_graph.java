@@ -68,7 +68,7 @@ public class Ellipse_graph extends Fragment {
         //2. Tạo đường trục tung, trục hoành
         //2.1. Xây dựng Entry - tập hợp các phần tử để tạo thành đồ thị
         ArrayList<Entry> zeroLineEntriesX = new ArrayList<>();
-        for (float x0 = -55; x0 <= 55; x0 += 0.1) {
+        for (float x0 = -63; x0 <= 63; x0 += 0.1) {
             float y0 = 0;
             zeroLineEntriesX.add(new Entry(x0, y0));
         }
@@ -96,8 +96,8 @@ public class Ellipse_graph extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(55f);
-        xAxis.setAxisMinimum(-55f);
+        xAxis.setAxisMaximum(63f);
+        xAxis.setAxisMinimum(-63f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
@@ -172,7 +172,7 @@ public class Ellipse_graph extends Fragment {
                 float y1 = (float) (-p4/p3);
                 entries.add(new Entry(x1,y1));
                 entries1.add(new Entry(x1,y1));
-                for (float x = -55; x <= 55; x += 0.002f)
+                for (float x = -63; x <= 63; x += 0.002f)
                 {
                     if (x>=(float)((-Math.sqrt(p5)-p2)/p1) &&
                             x<= (float)((Math.sqrt(p5)-p2)/p1)) {

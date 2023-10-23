@@ -150,7 +150,7 @@
                     android:paddingLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:text="1. Kéo dãn để Zoom vào đồ thị.\n2. Chạm và kéo đồ thị để chuyển hướng.\n3. Chạm vào điểm bất kỳ trên một đồ thị để hiện tung độ và hoành độ của nó."
+                    android:text="1. Kéo dãn để Zoom vào đồ thị.\n2. Chạm và kéo đồ thị để chuyển hướng."
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     />

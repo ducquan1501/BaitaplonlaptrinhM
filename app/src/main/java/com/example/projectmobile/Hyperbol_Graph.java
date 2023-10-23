@@ -26,7 +26,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.projectmobile.basic_graph_resource.Basic_Calculator;
+import com.example.projectmobile.basic_graph_resource.Basic_Graph;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
@@ -40,12 +43,14 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Math;
-public class Hyperbol_Graph extends Fragment {
+public class Hyperbol_Graph extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener{
     private EditText editText1, editText2, editText3, editText4, editText5, editText6;
     public Button menuButton;
     @Nullable
@@ -53,6 +58,9 @@ public class Hyperbol_Graph extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.hyperbol_graph, container, false);
+
+        BottomNavigationView bottomNavigationView = view.findViewById(R.id.hyper_graph_bnav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
         //1. Gọi các thành phần từ Layout, thiết lập tham số
         LineChart lineChart = view.findViewById(R.id.chart);
         editText1 = view.findViewById(R.id.parameter1);
@@ -69,7 +77,7 @@ public class Hyperbol_Graph extends Fragment {
         //2. Tạo đường trục tung, trục hoành
         //2.1. Xây dựng Entry - tập hợp các phần tử để tạo thành đồ thị
         ArrayList<Entry> zeroLineEntriesX = new ArrayList<>();
-        for (float x0 = -55; x0 <= 55; x0 += 0.1) {
+        for (float x0 = -65; x0 <= 65; x0 += 0.1) {
             float y0 = 0;
             zeroLineEntriesX.add(new Entry(x0, y0));
         }
@@ -97,8 +105,8 @@ public class Hyperbol_Graph extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(55f);
-        xAxis.setAxisMinimum(-55f);
+        xAxis.setAxisMaximum(65f);
+        xAxis.setAxisMinimum(-65f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
@@ -176,7 +184,7 @@ public class Hyperbol_Graph extends Fragment {
                 //4.2. Tạo mảng chứa tập hợp các điểm hình thành nên đồ thị
                 List<Entry> entries = new ArrayList<>();
                 List<Entry> entries1 = new ArrayList<>();
-                for (float x = -55; x < 55; x += 0.01f) {
+                for (float x = -65; x < 65; x += 0.01f) {
                     float y = (float) (p1 * x * x + p2 * x + p3) / (p4 * x * x + p5 * x + p6);
                     if(p4 * x * x + p5 * x + p6 > 0) {
                         entries.add(new Entry(x, y));
@@ -243,6 +251,17 @@ public class Hyperbol_Graph extends Fragment {
             }
         });
         return view;
+    }
+    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+
+        if(item.getItemId()==R.id.basic_graph_item){
+            transaction.replace(R.id.hyperbol_frame, new Hyperbol_Graph()).commit();
+        }
+        else if (item.getItemId()==R.id.calculator_item){
+            transaction.replace(R.id.hyperbol_frame, new Hyperbol_Calculator()).commit();
+        }
+        return true;
     }
 }
 

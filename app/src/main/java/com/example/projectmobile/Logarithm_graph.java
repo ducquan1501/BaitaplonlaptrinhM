@@ -93,8 +93,8 @@ public class Logarithm_graph extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(35f);
-        xAxis.setAxisMinimum(-35f);
+        xAxis.setAxisMaximum(41.238f);
+        xAxis.setAxisMinimum(-41.238f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);

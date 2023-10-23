@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,6 +11,10 @@
     tools:actionBarNavMode="list"
     tools:context=".MainActivity"
     tools:ignore="HardcodedText">
+    <FrameLayout
+        android:id="@+id/hyperbol_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -204,7 +208,7 @@
             </androidx.cardview.widget.CardView>
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart"
-                android:layout_height="1640px"
+                android:layout_height="585dp"
                 android:layout_width="match_parent"
                 tools:layout_editor_absoluteX="-60dp"
                 tools:layout_editor_absoluteY="16dp"
@@ -243,14 +247,15 @@
                     android:background="@android:color/holo_red_dark"
                     android:drawableTop="@drawable/baseline_replay_24"/>
             </androidx.cardview.widget.CardView>
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/basic_graph_bnav"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="@color/black"
-                app:itemTextColor="@color/white"
-                app:itemTextAppearanceActive="@color/white"
-                app:menu="@menu/basic_graph_bnav"
-                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+    </FrameLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/hyper_graph_bnav"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/black"
+    app:itemTextColor="@color/white"
+    app:itemTextAppearanceActive="@color/white"
+    app:menu="@menu/basic_graph_bnav"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

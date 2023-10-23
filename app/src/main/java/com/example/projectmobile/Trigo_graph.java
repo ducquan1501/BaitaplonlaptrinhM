@@ -100,8 +100,8 @@ public class Trigo_graph extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawLabels(true);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setAxisMaximum(16f);
-        xAxis.setAxisMinimum(-16f);
+        xAxis.setAxisMaximum(18.5725f);
+        xAxis.setAxisMinimum(-18.5725f);
         xAxis.setDrawGridLines(true);
         xAxis.setGranularity(0.1f);
         xAxis.setLabelCount(10);
