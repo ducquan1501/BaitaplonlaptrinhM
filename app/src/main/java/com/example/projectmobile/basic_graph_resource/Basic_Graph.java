@@ -29,7 +29,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener{
+public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavigationItemSelectedListener {
     private EditText editText1, editText2, editText3, editText4, editText5;
 
     @Nullable
@@ -156,32 +156,6 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
                     float y = p1 * x * x * x * x + p2 * x * x * x + p3 * x * x + p4 * x + p5;
                     entries.add(new Entry(x, y));
                 }
-                //4.3 Khai báo dataSet
-                //4.3.1. Tạo label
-//                float paraArray[] = {p1, p2, p3, p4, p5};
-//                String label = "y = ";
-//                for(int i = 0; i<paraArray.length; i+=1)
-//                {
-
-//                    if(paraArray[i]==0&&i==0){
-//                        label += "";
-//                    }else if(paraArray[i]<0){
-//                        if(paraArray[i]==-1){
-//                            label += "-x^"+(4-i);
-//                        } else if (paraArray[i]==0) {
-//                            label += "";
-//                        } else{
-//                            label += "-"+Math.abs(paraArray[i])+"x^"+(4-i);
-//                        }
-//                    }else{
-//                        if(paraArray[i]==1){
-//                            label += "+x^"+(4-i);
-//                        } else if (paraArray[i]==0){
-//                            label += "";
-//                        } else{
-//                            label += Math.abs(paraArray[i])+"x^"+(4-i);
-//                        }
-//                    }
                 String label = formatPolynomial(p1, p2, p3, p4, p5);
                 LineDataSet dataSet = new LineDataSet(entries, label);
                 int i = lineData.getDataSetCount();
@@ -236,103 +210,132 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
         });
         return view;
     }
-    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
 
-        if(item.getItemId()==R.id.basic_graph_item){
+        if (item.getItemId() == R.id.basic_graph_item) {
             transaction.replace(R.id.basic_frame, new Basic_Graph()).commit();
-        }
-        else if (item.getItemId()==R.id.calculator_item){
+        } else if (item.getItemId() == R.id.calculator_item) {
             transaction.replace(R.id.basic_frame, new Basic_Calculator()).commit();
         }
         return true;
     }
+
     public String formatPolynomial(float a, float b, float c, float d, float e) {
         StringBuilder polynomial = new StringBuilder();
         polynomial.append("y=");
         // Xử lý hệ số a (mũ bằng 4)
         if (a != 0) {
-            if (a != 1) {
-                polynomial.append(a);
+            if (a > 0) {
+                if (a == 1) {
+                    polynomial.append("x^4");
+                } else {
+                    polynomial.append(Math.abs(a) + "x^4");
+                }
+            } else {
+                if (a == -1) {
+                    polynomial.append(("-x^4"));
+                } else {
+                    polynomial.append("-" + Math.abs(a) + "x^4");
+                }
             }
-            polynomial.append("x^4");
         }
-
         // Xử lý hệ số b (mũ bằng 3)
         if (b != 0) {
             if (a != 0) {
                 if (b > 0) {
-                    polynomial.append(" + ");
+                    polynomial.append("+" + Math.abs(b) + "x^3");
                 } else {
-                    polynomial.append(" - ");
+                    polynomial.append("-" + Math.abs(b) + "x^3");
                 }
-            }
-            if (Math.abs(b) != 1) {
+            } else {
                 if (b > 0) {
-                    polynomial.append(" + ");
+                    if (b == 1) {
+                        polynomial.append("x^3");
+                    } else {
+                        polynomial.append(Math.abs(b) + "x^3");
+                    }
                 } else {
-                    polynomial.append(" - ");
+                    if (b == -1) {
+                        polynomial.append("-x^3");
+                    } else {
+                        polynomial.append("-" + Math.abs(b) + "x^3");
+                    }
                 }
-                polynomial.append(Math.abs(b));
             }
-            polynomial.append("x^3");
         }
-
-        // Xử lý hệ số c (mũ bằng 2)
         if (c != 0) {
             if (a != 0 || b != 0) {
                 if (c > 0) {
-                    polynomial.append(" + ");
+                    if (c != 1) {
+                        polynomial.append(Math.abs(c)+"x^2");
+                    } else {
+                        polynomial.append(Math.abs(c) + "x^2");
+                    }
                 } else {
-                    polynomial.append(" - ");
+                    if (c == -1f) {
+                        polynomial.append("-x^2");
+                    } else {
+                        polynomial.append("-" + Math.abs(c) + "x^2");
+                    }
                 }
-            }
-            if (Math.abs(c) != 1) {
+            } else {
                 if (c > 0) {
-                    polynomial.append(" + ");
+                    if (c != 1f) {
+                        polynomial.append(Math.abs(c)+"x^2");
+                    } else {
+                        polynomial.append(Math.abs(c) + "x^2");
+                    }
                 } else {
-                    polynomial.append(" - ");
+                    if (c == -1f) {
+                        polynomial.append("-x^2");
+                    } else {
+                        polynomial.append("-" + Math.abs(c) + "x^2");
+                    }
                 }
-                polynomial.append(Math.abs(c));
             }
-            polynomial.append("x^2");
         }
-        // Xử lý hệ số d (mũ bằng 1)
-        if (d != 0) {
-            if (a != 0 || b != 0 || c != 0) {
-                if (d > 0) {
-                    polynomial.append(" + ");
-                } else {
-                    polynomial.append(" - ");
+                // Xử lý hệ số d (mũ bằng 1)
+                if (d != 0) {
+                    if (a != 0 || b != 0 || c != 0) {
+                        if (d > 0) {
+                            polynomial.append("+");
+                        } else {
+                            polynomial.append("-");
+                        }
+                        polynomial.append(Math.abs(d) + "x");
+                    } else {
+                        if (d > 0) {
+                            if (d == 1f) {
+                                polynomial.append("x");
+                            } else {
+                                polynomial.append(Math.abs(d) + "x");
+                            }
+                        } else if (d < 0) {
+                            if (d == -1f) {
+                                polynomial.append("-x");
+                            } else {
+                                polynomial.append("-" + Math.abs(d) + "x");
+                            }
+                        }
+                    }
                 }
-            }
-            if (Math.abs(d) != 1) {
-                if (d > 0) {
-                    polynomial.append(" + ");
-                } else {
-                    polynomial.append(" - ");
+                if (e != 0) {
+                    if (a != 0 || b != 0 || c != 0 || d != 0) {
+                        if (e > 0) {
+                            polynomial.append("+" + Math.abs(e));
+                        } else {
+                            polynomial.append("-" + Math.abs(e));
+                        }
+                    } else {
+                        if (e > 0) {
+                            polynomial.append(Math.abs(e));
+                        } else {
+                            polynomial.append("-" + Math.abs(e));
+                        }
+                    }
                 }
-                polynomial.append(Math.abs(d));
+                return polynomial.toString();
             }
-            if (d < 0) {
-                polynomial.append(" - ");
-            }
-            polynomial.append("x");
         }
-        // Xử lý hệ số e (mũ bằng 0)
-        if (e != 0) {
-            if (a != 0 || b != 0 || c != 0 || d != 0) {
-                if (e > 0) {
-                    polynomial.append(" + ");
-                } else {
-                    polynomial.append(" - ");
-                }
-            }
-            if (e < 0) {
-                polynomial.append(" - ");
-            }
-            polynomial.append(Math.abs(e));
-        }
-        return polynomial.toString();
-    }
-}
