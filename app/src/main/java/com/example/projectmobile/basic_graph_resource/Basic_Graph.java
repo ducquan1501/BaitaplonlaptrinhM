@@ -164,9 +164,9 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
                 } else if (i % 7 == 1) {
                     dataSet.setColor(Color.parseColor("#FFAE00"));
                 } else if (i % 7 == 2) {
-                    dataSet.setColor(Color.WHITE);
-                } else if (i % 7 == 3) {
                     dataSet.setColor(Color.GREEN);
+                } else if (i % 7 == 3) {
+                    dataSet.setColor(Color.RED);
                 } else if (i % 7 == 4) {
                     dataSet.setColor(Color.parseColor("#02C7FC"));
                 } else if (i % 7 == 5) {
@@ -245,9 +245,17 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
         if (b != 0) {
             if (a != 0) {
                 if (b > 0) {
-                    polynomial.append("+" + Math.abs(b) + "x^3");
+                    if (b == 1) {
+                        polynomial.append("+x^3");
+                    } else {
+                        polynomial.append("+"+Math.abs(b) + "x^3");
+                    }
                 } else {
-                    polynomial.append("-" + Math.abs(b) + "x^3");
+                    if (b == -1) {
+                        polynomial.append("-x^3");
+                    } else {
+                        polynomial.append("-" + Math.abs(b) + "x^3");
+                    }
                 }
             } else {
                 if (b > 0) {
@@ -269,15 +277,15 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
             if (a != 0 || b != 0) {
                 if (c > 0) {
                     if (c != 1) {
-                        polynomial.append(Math.abs(c)+"x^2");
+                        polynomial.append("+"+Math.abs(c)+"x^2");
                     } else {
-                        polynomial.append(Math.abs(c) + "x^2");
+                        polynomial.append("+x^2");
                     }
                 } else {
-                    if (c == -1f) {
-                        polynomial.append("-x^2");
+                    if (c != -1f) {
+                        polynomial.append("-"+Math.abs(c)+"x^2");
                     } else {
-                        polynomial.append("-" + Math.abs(c) + "x^2");
+                        polynomial.append("-x^2");
                     }
                 }
             } else {
@@ -285,13 +293,13 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
                     if (c != 1f) {
                         polynomial.append(Math.abs(c)+"x^2");
                     } else {
-                        polynomial.append(Math.abs(c) + "x^2");
+                        polynomial.append("x^2");
                     }
                 } else {
                     if (c == -1f) {
                         polynomial.append("-x^2");
                     } else {
-                        polynomial.append("-" + Math.abs(c) + "x^2");
+                        polynomial.append("-x^2");
                     }
                 }
             }
@@ -300,23 +308,31 @@ public class Basic_Graph extends Fragment implements BottomNavigationView.OnNavi
                 if (d != 0) {
                     if (a != 0 || b != 0 || c != 0) {
                         if (d > 0) {
-                            polynomial.append("+");
-                        } else {
-                            polynomial.append("-");
-                        }
-                        polynomial.append(Math.abs(d) + "x");
-                    } else {
-                        if (d > 0) {
-                            if (d == 1f) {
-                                polynomial.append("x");
+                            if (d != 1) {
+                                polynomial.append("+" + Math.abs(d) + "x");
                             } else {
-                                polynomial.append(Math.abs(d) + "x");
+                                polynomial.append("+x");
                             }
-                        } else if (d < 0) {
+                        } else {
+                            if (d != -1f) {
+                                polynomial.append("-" + Math.abs(d) + "x");
+                            } else {
+                                polynomial.append("-x");
+                            }
+                        }
+                    }
+                    else{
+                        if (d > 0) {
+                            if (d != 1f) {
+                                polynomial.append(Math.abs(d)+"x");
+                            } else {
+                                polynomial.append("x");
+                            }
+                        } else {
                             if (d == -1f) {
                                 polynomial.append("-x");
                             } else {
-                                polynomial.append("-" + Math.abs(d) + "x");
+                                polynomial.append("-"+Math.abs(d)+"x");
                             }
                         }
                     }

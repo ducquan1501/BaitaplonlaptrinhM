@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new Basic_Graph())
                     .commit();
+
             getSupportActionBar().setTitle("Đồ thị hàm đa thức");
         } else if (item.getItemId() == R.id.hyperbol_graph) {
             getSupportFragmentManager().beginTransaction()
